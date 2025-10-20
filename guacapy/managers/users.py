@@ -25,10 +25,12 @@ Examples
 Create a client and list users:
 >>> from guacapy import Guacamole
 >>> client = Guacamole(
-...     hostname="guacamole.example.com",
-...     username="admin",
-...     password="secret",
-...     datasource="mysql"
+...     hostname="guac.example.com",
+...     username="guacadmin",
+...     password="guacpass",
+...     connection_protocol="https",
+...     ssl_verify=False,
+...     connection_port=8443
 ... )
 >>> user_manager = client.users
 >>> users = user_manager.list()
@@ -36,10 +38,10 @@ Create a client and list users:
 {'guacadmin': {'username': 'guacadmin', 'disabled': False, 'attributes': {...}, 'lastActive': 1760229440000}, ...}
 
 Retrieve user details:
->>> user = user_manager.user_details("daxm")
+>>> user = user_manager.user_details("john_doe")
 >>> print(user)
-{'username': 'daxm', 'disabled': False, 'attributes': {'guac-full-name': 'Dax Mickelson',
-'guac-email-address': 'asdf@asdf.com', ...}, 'lastActive': 1760023106000}
+{'username': 'john_doe', 'disabled': False, 'attributes': {'guac-full-name': 'John Doe',
+'guac-email-address': 'john.doe@example.com', ...}, 'lastActive': 1760023106000}
 """
 
 import logging
@@ -157,7 +159,7 @@ class UserManager(BaseManager):
 
         Examples
         --------
-        >>> user = user_manager.user_details("daxm")
+        >>> user = user_manager.user_details("john_doe")
         >>> print(user)
         {'username': 'daxm', 'disabled': False, 'attributes': {'guac-full-name': 'Dax Mickelson',
         'guac-email-address': 'asdf@asdf.com', ...}, 'lastActive': 1760023106000}

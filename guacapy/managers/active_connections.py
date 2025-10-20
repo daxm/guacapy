@@ -20,10 +20,12 @@ Examples
 Create a client and list active connections:
 >>> from guacapy import Guacamole
 >>> client = Guacamole(
-...     hostname="guacamole.example.com",
-...     username="admin",
-...     password="secret",
-...     datasource="mysql"
+...     hostname="guac.example.com",
+...     username="guacadmin",
+...     password="guacpass",
+...     connection_protocol="https",
+...     ssl_verify=False,
+...     connection_port=8443
 ... )
 >>> active_conns = client.active_connections
 >>> connections = active_conns.list()

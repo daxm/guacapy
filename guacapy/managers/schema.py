@@ -20,10 +20,12 @@ Examples
 Create a client and list supported protocols:
 >>> from guacapy import Guacamole
 >>> client = Guacamole(
-...     hostname="guacamole.example.com",
-...     username="admin",
-...     password="secret",
-...     datasource="mysql"
+...     hostname="guac.example.com",
+...     username="guacadmin",
+...     password="guacpass",
+...     connection_protocol="https",
+...     ssl_verify=False,
+...     connection_port=8443
 ... )
 >>> schema_manager = client.schema
 >>> protocols = schema_manager.protocols()

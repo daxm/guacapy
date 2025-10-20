@@ -20,13 +20,15 @@ Examples
 Create a client and assign a system permission:
 >>> from guacapy import Guacamole
 >>> client = Guacamole(
-...     hostname="guacamole.example.com",
-...     username="admin",
-...     password="secret",
-...     datasource="mysql"
+...     hostname="guac.example.com",
+...     username="guacadmin",
+...     password="guacpass",
+...     connection_protocol="https",
+...     ssl_verify=False,
+...     connection_port=8443
 ... )
 >>> permissions_manager = client.permissions
->>> response = permissions_manager.assign_system_permission(username="daxm", permission="CREATE_USER")
+>>> response = permissions_manager.assign_system_permission(username="john_doe", permission="CREATE_USER")
 >>> print(response.status_code)
 204
 """

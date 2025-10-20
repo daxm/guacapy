@@ -8,9 +8,12 @@ Examples
 --------
 >>> from guacapy import Guacamole
 >>> client = Guacamole(
-...     hostname="guacamole.example.com",
-...     username="admin",
-...     password="secret"
+...     hostname="guac.example.com",
+...     username="guacadmin",
+...     password="guacpass",
+...     connection_protocol="https",
+...     ssl_verify=False,
+...     connection_port=8443
 ... )
 >>> configure_logging("DEBUG")
 >>> response = requester(client, url=f"{client.base_url}/session/data/mysql/users")
@@ -435,7 +438,7 @@ def get_connection_group_by_name(
 
     Examples
     --------
-    >>> client = Guacamole(hostname="guacamole.example.com", username="admin", password="secret")
+    >>> client = Guacamole(hostname="guac.example.com", username="guacadmin", password="guacpass", connection_protocol="https", ssl_verify=False, connection_port=8443)
     >>> group = client.get_connection_group_by_name("Root Group")
     """
     if not datasource:

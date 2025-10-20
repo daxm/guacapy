@@ -20,10 +20,12 @@ Examples
 Create a client and list connections:
 >>> from guacapy import Guacamole
 >>> client = Guacamole(
-...     hostname="guacamole.example.com",
-...     username="admin",
-...     password="secret",
-...     datasource="mysql"
+...     hostname="guac.example.com",
+...     username="guacadmin",
+...     password="guacpass",
+...     connection_protocol="https",
+...     ssl_verify=False,
+...     connection_port=8443
 ... )
 >>> conn_manager = client.connections
 >>> connections = conn_manager.list()
@@ -327,7 +329,7 @@ class ConnectionManager(BaseManager):
         >>> payload = deepcopy(ConnectionManager.RDP_TEMPLATE)
         >>> payload.update({
         ...     "name": "testconnection",
-        ...     "parameters": {"hostname": "localhost", "port": "3389"}
+        ...     "parameters": {"hostname": "test_server", "port": "3389"}
         ... })
         >>> connection = conn_manager.create(payload)
         """
@@ -390,7 +392,7 @@ class ConnectionManager(BaseManager):
         >>> payload.update({
         ...     "identifier": "2",
         ...     "name": "testconnection_updated",
-        ...     "parameters": {"hostname": "localhost", "port": "3389"}
+        ...     "parameters": {"hostname": "test_server", "port": "3389"}
         ... })
         >>> response = conn_manager.update("2", payload)
         """
