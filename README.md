@@ -26,14 +26,14 @@ pip install guacapy
 
 ### From Source
 ```bash
-git clone https://github.com/yourusername/guacapy.git
+git clone https://github.com/pschmitt/guacapy.git
 cd guacapy
 pip install .
 ```
 
 ### Development Installation
 ```bash
-git clone https://github.com/yourusername/guacapy.git
+git clone https://github.com/pschmitt/guacapy.git
 cd guacapy
 pip install -e .[dev]
 ```
