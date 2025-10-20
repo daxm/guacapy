@@ -15,9 +15,14 @@ Permissions
 
 Notes
 
-The /api/session/ext/guacamole/languages endpoint returns 404 in Guacamole 1.6.0, likely due to a missing extension (e.g., guacamole-auth-jdbc-mysql) or version incompatibility. It is excluded from this wrapper as it appears related to UI language settings.
-The ROOT connection group may not appear in ConnectionGroupManager.list() responses, contrary to documentation expectations. Use ConnectionGroupManager.get_by_name("ROOT") to retrieve it.
-The UserGroupManager.delete method may fail with a 500 error due to a known SQL syntax issue in Guacamole 1.6.0 (GUACAMOLE-2088). Workaround: Manually delete via SQL: DELETE FROM guacamole_entity WHERE type = 'USER_GROUP' AND name = 'group_name'.
+The /api/session/ext/guacamole/languages endpoint returns 404 in Guacamole 1.6.0, likely due to a missing extension 
+(e.g., guacamole-auth-jdbc-mysql) or version incompatibility. It is excluded from this wrapper as it appears related to 
+UI language settings.
+The ROOT connection group may not appear in ConnectionGroupManager.list() responses, contrary to documentation 
+expectations. Use ConnectionGroupManager.get_by_name("ROOT") to retrieve it.
+The UserGroupManager.delete method may fail with a 500 error due to a known SQL syntax issue in Guacamole 1.6.0 
+(GUACAMOLE-2088). Workaround: Manually delete via 
+SQL: DELETE FROM guacamole_entity WHERE type = 'USER_GROUP' AND name = 'group_name'.
 
 Usage Examples
 Below are runnable examples for common tasks using guacapy.
@@ -26,9 +31,9 @@ from guacapy import Guacamole
 from copy import deepcopy
 
 client = Guacamole(
-    hostname="192.168.11.53",
+    hostname="guac.example.com",
     username="guacadmin",
-    password="abAB12!@",
+    password="guacpass",
     connection_protocol="https",
     ssl_verify=False,
     connection_port=8443
@@ -48,9 +53,9 @@ from guacapy import Guacamole
 from copy import deepcopy
 
 client = Guacamole(
-    hostname="192.168.11.53",
+    hostname="guac.example.com",
     username="guacadmin",
-    password="abAB12!@",
+    password="guacpass",
     connection_protocol="https",
     ssl_verify=False,
     connection_port=8443
@@ -73,9 +78,9 @@ Assigning a User to a Connection
 from guacapy import Guacamole
 
 client = Guacamole(
-    hostname="192.168.11.53",
+    hostname="guac.example.com",
     username="guacadmin",
-    password="abAB12!@",
+    password="guacpass",
     connection_protocol="https",
     ssl_verify=False,
     connection_port=8443
@@ -88,9 +93,9 @@ from guacapy import Guacamole
 from copy import deepcopy
 
 client = Guacamole(
-    hostname="192.168.11.53",
+    hostname="guac.example.com",
     username="guacadmin",
-    password="abAB12!@",
+    password="guacpass",
     connection_protocol="https",
     ssl_verify=False,
     connection_port=8443
@@ -105,9 +110,9 @@ Adding a User to a User Group
 from guacapy import Guacamole
 
 client = Guacamole(
-    hostname="192.168.11.53",
+    hostname="guac.example.com",
     username="guacadmin",
-    password="abAB12!@",
+    password="guacpass",
     connection_protocol="https",
     ssl_verify=False,
     connection_port=8443
